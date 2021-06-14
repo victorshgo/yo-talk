@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Divider, Tag, Row, Col } from "antd";
+import { Typography, Button } from "antd";
 
 /* Components */
 import Participant from "@/components/Participant";
@@ -35,35 +35,38 @@ const Room = ({ roomName, room, handleLogout }) => {
 
   return (
     <div style={{ width: "100%" }}>
-      <Row justify="space-between" gutter={20}>
-        {room && (
-          <Col span={12}>
-            <Divider orientation="left">
-              Administrator &nbsp;
-              <Tag
-                data-testid="tagLogout"
-                color="red"
-                onClick={handleLogout}
-                style={{ cursor: "pointer" }}
-              >
-                Close room
-              </Tag>
-            </Divider>
-            <Participant
-              key={room.localParticipant.sid}
-              participant={room.localParticipant}
-            />
-          </Col>
-        )}
-        <Col span={12}>
-          <Divider orientation="left">Participants</Divider>
-          {remoteParticipants ? (
-            remoteParticipants
-          ) : (
-            <Card hoverable style={{ marginTop: 15 }}></Card>
-          )}
-        </Col>
-      </Row>
+      {room && (
+        <Participant
+          principal={true}
+          key={room.localParticipant.sid}
+          participant={room.localParticipant}
+        />
+      )}
+      <div
+        style={{
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          background: "rgba(0, 0, 0, 0.5)",
+          color: "#f1f1f1",
+          width: "100%",
+          padding: 25,
+        }}
+      >
+        <Typography.Title style={{ color: "#f1f1f1" }}>
+          Room name: {roomName}
+        </Typography.Title>
+        <p>
+          Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat
+          phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum
+          maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore
+          latine molestiae, ad mutat oblique delicatissimi pro.
+        </p>
+        <Button type="primary" onClick={handleLogout} danger>
+          Leave room
+        </Button>
+      </div>
+      {participants.length === 0 ? <></> : <>{remoteParticipants}</>}
     </div>
   );
 };

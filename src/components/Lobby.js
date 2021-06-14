@@ -29,7 +29,6 @@ const Lobby = ({
           value={username}
           onChange={handleUsernameChange}
           readOnly={connecting}
-          data-testid="inputName"
           required
         />
 
@@ -39,7 +38,6 @@ const Lobby = ({
           value={roomName}
           onChange={handleRoomNameChange}
           readOnly={connecting}
-          data-testid="inputRoom"
           required
         />
 
@@ -49,7 +47,6 @@ const Lobby = ({
           type="primary"
           disabled={connecting || username === "" || roomName === ""}
           onClick={handleSubmit}
-          data-testid="buttonSubmit"
           style={{ width: "100%" }}
         >
           {connecting ? "Connecting..." : "Join"}

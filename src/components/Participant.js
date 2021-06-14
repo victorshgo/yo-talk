@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Card } from "antd";
 
-const Participant = ({ participant }) => {
+const Participant = ({ principal, participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
 
@@ -64,20 +64,29 @@ const Participant = ({ participant }) => {
   }, [audioTracks]);
 
   return (
-    <Card hoverable style={{ marginTop: 15 }}>
+    <>
       <video
-        data-testid="video"
         ref={videoRef}
         autoPlay={true}
-        style={{ height: "100%", width: "100%", transform: "rotateY(180deg)" }}
+        style={
+          principal ? {
+            position: "fixed",
+            right: 0,
+            bottom: 0,
+            minWidth: "100%",
+            minHeight: "100%",
+            transform: "rotateY(180deg)",
+          } : {
+            position: "fixed",
+            right: 0,
+            bottom: 0,
+            height: 180,
+            transform: "rotateY(180deg)",
+          }
+        }
       />
-      <audio
-        data-testid="audio"
-        ref={audioRef}
-        autoPlay={true}
-        muted={true}
-      />
-    </Card>
+      <audio ref={audioRef} autoPlay={true} muted={true} />
+    </>
   );
 };
 
