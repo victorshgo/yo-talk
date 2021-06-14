@@ -25,10 +25,10 @@ Além disto é bom ter um editor para trabalhar com o código como:
 
 ```bash
 # Clone este repositório
-$ git clone git@bitbucket.org:Tempo_Assist/monitoring-panel.git
+$ git clone git@github.com:victorshgo/yo-talk.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd monitoring-panel
+$ cd yo-talk
 
 # Instale as dependências
 $ yarn
