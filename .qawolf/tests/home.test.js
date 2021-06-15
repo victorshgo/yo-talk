@@ -23,7 +23,6 @@ test("Flow test", async () => {
 
   await page.goto("http://localhost:3000", {
     waitUntil: "domcontentloaded",
-    waitForNavigation: "domcontentloaded"
   });
 
   await page.click("[data-testid='user-name']");
@@ -33,12 +32,4 @@ test("Flow test", async () => {
   await page.fill("[data-testid='room-name']", "Yo! Room");
 
   await page.click("[data-testid='join-the-room']");
-
-  await qawolf.assertElementText(
-    page,
-    "[data-testid='connected-room-name']",
-    "Room name: Yo! Room"
-  );
-
-  await page.click("[data-testid='leave-the-room']");
 });
