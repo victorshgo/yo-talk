@@ -1,0 +1,7 @@
+{
+    "0_input": "[data-testid='user-name']",
+    "1_input": "[data-testid='room-name']",
+    "2_button": "[data-testid='join-the-room']",
+    "3_title": "[data-testid='connected-room-name']",
+    "4_button": "[data-testid='leave-the-room']"
+}

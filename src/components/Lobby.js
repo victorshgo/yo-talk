@@ -26,6 +26,7 @@ const Lobby = ({
         <label htmlFor="name">Type your name:</label>
         <Input
           id="name"
+          data-testid="user-name"
           value={username}
           onChange={handleUsernameChange}
           readOnly={connecting}
@@ -35,6 +36,7 @@ const Lobby = ({
         <label htmlFor="room">Enter room name:</label>
         <Input
           id="room"
+          data-testid="room-name"
           value={roomName}
           onChange={handleRoomNameChange}
           readOnly={connecting}
@@ -44,7 +46,7 @@ const Lobby = ({
         <Divider />
 
         <Button
-          id="join"
+          data-testid="join-the-room"
           type="primary"
           onClick={handleSubmit}
           style={{ width: "100%" }}

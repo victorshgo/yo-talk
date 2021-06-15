@@ -1,5 +1,5 @@
 module.exports = {
-  config: "node_modules/qawolf/js-jest.config.json",
+  config: "{}",
   rootDir: ".qawolf",
   testTimeout: 60000,
   useTypeScript: false
