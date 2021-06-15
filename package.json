@@ -20,5 +20,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "qawolf": "1.7.0"
+  }
 }

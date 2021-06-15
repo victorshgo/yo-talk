@@ -53,7 +53,7 @@ const Room = ({ roomName, room, handleLogout }) => {
           padding: 25,
         }}
       >
-        <Typography.Title style={{ color: "#f1f1f1" }}>
+        <Typography.Title id="title" style={{ color: "#f1f1f1" }}>
           Room name: {roomName}
         </Typography.Title>
         <p>
@@ -62,7 +62,7 @@ const Room = ({ roomName, room, handleLogout }) => {
           maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore
           latine molestiae, ad mutat oblique delicatissimi pro.
         </p>
-        <Button type="primary" onClick={handleLogout} danger>
+        <Button id="leave" type="primary" onClick={handleLogout} danger>
           Leave room
         </Button>
       </div>

@@ -44,6 +44,7 @@ const Lobby = ({
         <Divider />
 
         <Button
+          id="join"
           type="primary"
           disabled={connecting || username === "" || roomName === ""}
           onClick={handleSubmit}
