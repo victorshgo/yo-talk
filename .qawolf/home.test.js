@@ -21,7 +21,7 @@ afterAll(async () => {
 test("Flow test", async () => {
   const page = await context.newPage();
   
-  await page.goto("https://yo-talk.herokuapp.com/", { waitUntil: "domcontentloaded" });
+  await page.goto(process.env.APP_URL, { waitUntil: "domcontentloaded" });
 
   await page.click("#name");
   await page.fill("#name", "Victor Hugo");
