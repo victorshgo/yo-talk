@@ -31,15 +31,5 @@ test("Flow test", async () => {
 
   await page.click("[data-testid='join-the-room']");
 
-  await qawolf.waitForPage(context, 0, {
-    waitUntil: 'domcontentloaded',
-  });
-  
-  await qawolf.assertElementText(
-    page,
-    "[data-testid='connected-room-name']",
-    "Room name: Yo! Room"
-  );
-
   await page.click("[data-testid='leave-the-room']");
 });
