@@ -9,7 +9,11 @@ beforeAll(async () => {
     permissions: ["camera", "microphone"],
     args: ["--use-fake-ui-for-media-stream"],
   });
-  context = await browser.newContext();
+  context = await browser.newContext({
+    slowMo: 1000,
+    permissions: ["camera", "microphone"],
+    args: ["--use-fake-ui-for-media-stream"],
+  });
   await qawolf.register(context);
 });
 
