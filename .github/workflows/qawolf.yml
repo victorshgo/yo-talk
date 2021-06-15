@@ -25,26 +25,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./qawolf
 
-      - name: Start local server
-        run: npm run start & npx wait-on http://localhost:3000
-
-      - run: npx qawolf test --headless
+      - name: Test qawolf
+        run: npm test
+        working-directory: ./qawolf
         env:
-          # configure tests with environment variables
-          # FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
-          # QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts
-          # you can also use GitHub secrets for environment variables
-          # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
-          # LOGIN_PASSWORD: ${{ secrets.PASSWORD }}
-          ACCOUNT_SID: AC38b3c9b5fa7a924bfaf3f0811fd4e5bb
-          API_KEY: SKf4e40776608469c77f34c5dea0b84480
-          API_SECRET: yVbLFZCysfxTxzBGlz8u0pkNNFMdHoy1
-      
-      - name: Upload Artifacts
-        if: always()
-        uses: actions/upload-artifact@master
-        with:
-          name: qawolf
-          path: ${{ github.workspace }}/artifacts
+          CI: true
