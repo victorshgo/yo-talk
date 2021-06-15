@@ -1,15 +1,12 @@
 name: qawolf
 on:
   push:
-    # test every branch
-    # edit below if you only want certain branches tested
-    branches: "*"
-  # schedule:
-  #   # test on schedule using cron syntax
-  #   - cron: "0 * * * *" # every hour
+    paths:
+      - ".github/workflows/qawolf.yml"
+      - "qawolf/**"
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -17,13 +14,6 @@ jobs:
       - uses: actions/setup-node@v1
 
       - uses: microsoft/playwright-github-action@v1
-
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm install
