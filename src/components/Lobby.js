@@ -46,7 +46,6 @@ const Lobby = ({
         <Button
           id="join"
           type="primary"
-          disabled={connecting || username === "" || roomName === ""}
           onClick={handleSubmit}
           style={{ width: "100%" }}
         >
