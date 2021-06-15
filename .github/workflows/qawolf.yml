@@ -30,7 +30,7 @@ jobs:
       - name: Start local server
         run: npm run start & npx wait-on http://localhost:3000
 
-      - run: npx qawolf test --headless
+      - run: npx qawolf test home
         env:
           # configure tests with environment variables
           FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
